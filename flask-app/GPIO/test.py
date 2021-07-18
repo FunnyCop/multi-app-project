@@ -25,7 +25,7 @@ while True:
 
     # If the Input Voltage is Below 0
     # Increase the Gain Amplification
-    if chan.voltage < 0:
+    if channel[ 0 ].voltage < 0:
         ads.gain = 2/3
 
     # If the Input Voltage is Above 0
