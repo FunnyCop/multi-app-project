@@ -25,7 +25,7 @@ while True:
 
     # If the Input Voltage is Below 0
     # Increase the Gain Amplification
-    if channel[ 0 ].voltage < 0:
+    if channels[ 0 ].voltage < 0:
         ads.gain = 2/3
 
     # If the Input Voltage is Above 0
@@ -34,4 +34,4 @@ while True:
         ads.gain = 1
 
     # Print the Voltage from Pin A0
-    print( channel[ 0 ].voltage )
+    print( channels[ 0 ].voltage )
