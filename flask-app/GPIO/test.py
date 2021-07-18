@@ -1,28 +1,37 @@
-# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
-# SPDX-License-Identifier: MIT
-
-import time
+# CircuitPython Modules
 import board
 import busio
+
+# Adafruit ADS1115 Modules
 import adafruit_ads1x15.ads1115 as ADS
-from adafruit_ads1x15.analog_in import AnalogIn
+from adafruit_ads1x15.analog_in import analog_in
 
-# Create the I2C bus
-i2c = busio.I2C(board.SCL, board.SDA)
+# Create the I2C Bus
+i2c = busio.I2C( board.SCL, board.SDA )
 
-# Create the ADC object using the I2C bus
-ads = ADS.ADS1115(i2c)
-# you can specify an I2C adress instead of the default 0x48
-# ads = ADS.ADS1115(i2c, address=0x49)
+# Create the ADS1115 Device
+ads = ADS.ADS1115( i2c )
 
-# Create single-ended input on channel 0
-chan = AnalogIn(ads, ADS.P0)
+# Create Channels for Measuring Input Voltage
+channels = [
+    AnalogIn( ads, ADS.P0 ), # Pin A0
+    AnalogIn( ads, ADS.P1 ), # Pin A1
+    AnalogIn( ads, ADS.P2 ), # Pin A2
+    AnalogIn( ads, ADS.P3 )  # Pin A3
+]
 
-# Create differential input between channel 0 and 1
-# chan = AnalogIn(ads, ADS.P0, ADS.P1)
-
-print("{:>5}\t{:>5}".format("raw", "v"))
-
+# Loop for Reading Input
 while True:
-    print("{:>5}\t{:>5.3f}".format(chan.value, chan.voltage))
-    time.sleep(0.5)
+
+    # If the Input Voltage is Below 0
+    # Increase the Gain Amplification
+    if chan.voltage < 0:
+        ads.gain = 2/3
+
+    # If the Input Voltage is Above 0
+    # Set the Gain Amplification to Default
+    else:
+        ads.gain = 1
+
+    # Print the Voltage from Pin A0
+    print( channel[ 0 ].voltage )
