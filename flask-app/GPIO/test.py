@@ -14,10 +14,10 @@ ads = ADS.ADS1115( i2c )
 
 # Create Channels for Measuring Input Voltage
 channels = [
-    AnalogIn( ads, ADS.P0 ), # Pin A0
-    AnalogIn( ads, ADS.P1 ), # Pin A1
-    AnalogIn( ads, ADS.P2 ), # Pin A2
-    AnalogIn( ads, ADS.P3 )  # Pin A3
+    AnalogIn( ads, ADS.P0 ), # Pin A0 -- 100k ohm pot
+    AnalogIn( ads, ADS.P1 ), # Pin A1 -- momentary switch
+    AnalogIn( ads, ADS.P2 ), # Pin A2 -- 1st switch state
+    AnalogIn( ads, ADS.P3 )  # Pin A3 -- 2nd switch state
 ]
 
 # Loop for Reading Input
