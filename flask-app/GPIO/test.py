@@ -57,6 +57,6 @@ while True:
     rotation = f"{ rotation }deg"
 
     # Print the Voltage from Pin A0
-    sio.emit( "NewRotation", { rotation: rotation } )
+    sio.emit( "message", { rotation: rotation } )
 
     time.sleep( 0.05 )
