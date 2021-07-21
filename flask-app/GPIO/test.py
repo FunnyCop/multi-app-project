@@ -4,7 +4,7 @@ import time
 import socketio
 
 sio = socketio.Client()
-sio.connect( "http://192.168.1.253:3000" )
+sio.connect( "http://localhost:3000" )
 
 # CircuitPython Modules
 import board
