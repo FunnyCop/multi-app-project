@@ -22,4 +22,4 @@ io.on( "connection", socket => {
     // )
 } )
 
-io.on( "NewRotation", ( socket, deg ) => console.log( deg ) )
+io.on( "message", ( socket ) => console.log( 1 ) )
