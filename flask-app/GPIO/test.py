@@ -3,7 +3,7 @@ import time
 # Socket.io
 import socketio
 
-sio = socketio.Server( ":8000" )
+sio = socketio.Server()
 
 # CircuitPython Modules
 import board
