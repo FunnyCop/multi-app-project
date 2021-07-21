@@ -1,9 +1,12 @@
-const io = require("socket.io");
-const server = new io.Server(3000);
+var express = require("express");
+var app = express();
+var socket = require('socket.io');
+var server = app.listen(3000);
+var io = socket.listen(server);
 
-server.on( "connection", socket => {
+io.sockets.on( "connection", socket => {
   console.log("user connected");
   socket.emit("welcome", "welcome man");
 } )
 
-server.on( "message", data => console.log( 1 ) )
+io.sockets.on( "message", data => console.log( 1 ) )

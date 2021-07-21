@@ -4,7 +4,7 @@ import io from "socket.io-client"
 import "./static/css/App.css"
 
 const App = () => {
-  const [ socket ] = useState( io( "http://192.168.1.253:8000" ) )
+  const [ socket ] = useState( io( "http://192.168.1.253:3000" ) )
   const [ rotation, setRotation ] = useState( "" )
 
   socket.on( "SetRotation", deg => setRotation( deg ) )
