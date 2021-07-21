@@ -1,12 +1,14 @@
-var express = require("express");
-var app = express();
-var socket = require('socket.io');
-var server = app.listen(3000);
-var io = socket.listen(server);
+import { createServer } from "http";
+import { Server } from "socket.io";
 
-io.sockets.on( "connection", socket => {
+const httpServer = createServer();
+const io = new Server(httpServer)
+
+io.on( "connection", socket => {
   console.log("user connected");
   socket.emit("welcome", "welcome man");
 } )
 
-io.sockets.on( "message", data => console.log( 1 ) )
+io.on( "message", data => console.log( 1 ) )
+
+httpServer.listen(3000);
