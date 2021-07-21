@@ -3,7 +3,8 @@ import time
 # Socket.io
 import socketio
 
-sio = socketio.Server()
+sio = socketio.Client()
+sio.connect( "192.168.1.2:8000" )
 
 # CircuitPython Modules
 import board
