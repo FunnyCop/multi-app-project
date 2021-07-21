@@ -38,4 +38,4 @@ while True:
     # Print the Voltage from Pin A0
     print( channels[ 0 ].voltage )
 
-    time.sleep( 0.65 )
+    time.sleep( 0.55 )
