@@ -28,35 +28,4 @@ channels = [
     AnalogIn( ads, ADS.P3 )  # Pin A3 -- 2nd switch state
 ]
 
-# Loop for Reading Input
-while True:
-    rotation = 0
-
-    # If the Input Voltage is Below 0
-    # Increase the Gain Amplification
-    if channels[ 0 ].voltage < 0:
-        ads.gain = 2/3
-
-    # If the Input Voltage is Above 0
-    # Set the Gain Amplification to Default
-    else:
-        ads.gain = 1
-
-    if channels[ 0 ].voltage <= 0.01:
-        rotation = 0
-    elif channels[ 0 ].voltage >= 3.157:
-        rotation = 360
-    else:
-        rotation = ( channels[ 0 ].voltage - 0.01 ) * ( 31 + ( 2443 / 3147 ) )
-
-        if rotation <= 0.01:
-            rotation = 0
-        elif rotation >= 3.157:
-            rotation = 100
-
-    rotation = f"{ rotation }deg"
-
-    # Print the Voltage from Pin A0
-    sio.emit( "message", { rotation: rotation } )
-
-    time.sleep( 0.05 )
+sio.emit( "message", "hello" )
