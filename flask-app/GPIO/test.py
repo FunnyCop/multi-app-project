@@ -1,5 +1,11 @@
 import time
 
+# Socket.io
+import socketio
+
+io = socketio.Client()
+io.connect( "http://192.168.1.2:8000" )
+
 # CircuitPython Modules
 import board
 import busio
@@ -24,6 +30,7 @@ channels = [
 
 # Loop for Reading Input
 while True:
+    rotation = 0
 
     # If the Input Voltage is Below 0
     # Increase the Gain Amplification
@@ -35,7 +42,21 @@ while True:
     else:
         ads.gain = 1
 
+    if channels[ 0 ].voltage <= 0.01:
+        rotation = 0
+    elif channels[ 0 ].voltage >= 3.157:
+        rotation = 360
+    else:
+        rotation = ( channels[ 0 ].voltage - 0.01 ) * ( 31 + ( 2443 / 3147 ) )
+
+        if rotation <= 0.01:
+            rotation = 0
+        elif rotation >= 3.157:
+            rotation = 100
+
+    rotation = f"{ rotation }deg"
+
     # Print the Voltage from Pin A0
-    print( channels[ 0 ].voltage )
+    io.emit( "NewRotation", rotation )
 
     time.sleep( 0.05 )

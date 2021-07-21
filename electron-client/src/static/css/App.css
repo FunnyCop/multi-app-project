@@ -19,22 +19,6 @@
 
 #Scene {
   position: relative;
-  -webkit-animation: rotateScene 30s infinite linear;
-          animation: rotateScene 30s infinite linear;
-}
-
-@-webkit-keyframes rotateScene {
-  to {
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  }
-}
-
-@keyframes rotateScene {
-  to {
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  }
 }
 
 #Floor {
@@ -134,15 +118,4 @@ p {
   height: 5em;
   -webkit-transform: rotateX(90deg) translateZ(2.5em);
           transform: rotateX(90deg) translateZ(2.5em);
-}
-
-input {
-  width: 98%;
-  height: 90%;
-  color: black;
-  background-color: transparent;
-  border: 2px solid grey;
-  -webkit-box-shadow: 0 0 0.2em #000 inset;
-          box-shadow: 0 0 0.2em #000 inset;
-  text-align: center;
 }
