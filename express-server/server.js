@@ -1,11 +1,13 @@
 var express = require('express');
 var app = express();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
-http.listen(8000, function(){
+var socketio = require('socket.io');
+
+var server = app.listen( 8000, () => {
     console.log('listening on port 8000');
 });
+
+var io = socketio( server, {pingTimeout: 60000} )
 
 
 io.on( "connection", socket => {
