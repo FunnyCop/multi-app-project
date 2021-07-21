@@ -3,7 +3,7 @@ var app = express();
 
 var socketio = require('socket.io');
 
-var server = app.listen( 8000, () => {
+var server = app.listen( 8000, "192.168.1.253", () => {
     console.log('listening on port 8000');
 });
 
