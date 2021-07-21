@@ -13,5 +13,3 @@ io.on("connection", socket => {
 })
 
 io.on("message", data => console.log(1))
-
-httpServer.listen(3000);
