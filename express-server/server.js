@@ -1,5 +1,5 @@
 const io = require("socket.io");
-const server = io.Server(3000);
+const server = new io.Server(3000);
 
 server.on( "connection", socket => {
   console.log("user connected");
