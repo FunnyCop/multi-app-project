@@ -1,12 +1,12 @@
-const express = require( "express" )
-const app = express()
-const port = 8000
+var express = require('express');
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-const server = app.listen( port, () => {
-    console.log( `The server is running on port ${ port }` )
-} )
+http.listen(8000, function(){
+    console.log('listening on port 8000');
+});
 
-const io = require( "socket.io" )( server, { cors: true } )
 
 io.on( "connection", socket => {
     console.log( "Client Connected" )
@@ -22,4 +22,4 @@ io.on( "connection", socket => {
     // )
 } )
 
-io.on( "NewRotation", ( socket, deg ) => socket.broadcast.emit( "SetRotation", deg ) )
+io.on( "NewRotation", ( socket, deg ) => console.log( deg ) )

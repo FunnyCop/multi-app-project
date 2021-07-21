@@ -3,8 +3,7 @@ import time
 # Socket.io
 import socketio
 
-io = socketio.Client()
-io.connect( "http://192.168.1.2:8000" )
+sio = socketio.Server( ":8000" )
 
 # CircuitPython Modules
 import board
@@ -57,6 +56,6 @@ while True:
     rotation = f"{ rotation }deg"
 
     # Print the Voltage from Pin A0
-    io.emit( "NewRotation", rotation )
+    sio.emit( "NewRotation", rotation )
 
     time.sleep( 0.05 )
