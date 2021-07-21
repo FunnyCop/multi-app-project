@@ -22,4 +22,4 @@ io.on( "connection", socket => {
     // )
 } )
 
-io.on( "message", ( socket ) => console.log( 1 ) )
+io.on( "message", data => console.log( 1 ) )
