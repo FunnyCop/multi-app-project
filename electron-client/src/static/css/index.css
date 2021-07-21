@@ -5,6 +5,13 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Zen Loop", cursive;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
 body, #root, #App {

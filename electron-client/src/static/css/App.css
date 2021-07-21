@@ -19,8 +19,6 @@
 
 #Scene {
   position: relative;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
   -webkit-animation: rotateScene 30s infinite linear;
           animation: rotateScene 30s infinite linear;
 }
@@ -69,32 +67,41 @@ p {
   padding: 10px;
   background-color: #fff3;
   color: red;
-  border: 1px solid grey;
+  border: 2px solid grey;
   position: absolute;
   top: -1em;
   text-align: center;
   font-size: .5em;
-  text-shadow: 1px 1px 3px #000;
-  -webkit-box-shadow: 0 0 0.1em #000 inset;
-          box-shadow: 0 0 0.1em #000 inset;
+  text-shadow: 0 0 3px #000;
+  -webkit-box-shadow: 0 0 0.05em #000 inset, 0 0 1px 0px #fff;
+          box-shadow: 0 0 0.05em #000 inset, 0 0 1px 0px #fff;
 }
 
 .Side {
   height: 1.6em;
   background-color: #fff3;
-  border: 1px solid grey;
+  border: 2px solid grey;
   position: absolute;
   top: -1em;
   left: -5em;
   font-size: .5em;
-  -webkit-box-shadow: 0 0 0.1em #000 inset;
-          box-shadow: 0 0 0.1em #000 inset;
+  -webkit-box-shadow: 0 0 0.05em #000 inset, 0 0 1px 0px #fff;
+          box-shadow: 0 0 0.05em #000 inset, 0 0 1px 0px #fff;
 }
 
 #BackSide {
   width: 10em;
-  -webkit-transform: translateZ(-2.5em);
-          transform: translateZ(-2.5em);
+  -webkit-transform: translateZ(-2.5em) rotateY(180deg);
+          transform: translateZ(-2.5em) rotateY(180deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #RightSide, #LeftSide {
@@ -115,10 +122,11 @@ p {
 #Bottom {
   width: 10em;
   height: 5em;
+  border: 2px solid grey;
   -webkit-transform: rotateX(-90deg) translateZ(-46px);
           transform: rotateX(-90deg) translateZ(-46px);
-  -webkit-box-shadow: 0 0 0.2em #000 inset;
-          box-shadow: 0 0 0.2em #000 inset;
+  -webkit-box-shadow: 0 0 0.2em #000 inset, 0 0 0.5em #000, 0 0 1px 0px #fff;
+          box-shadow: 0 0 0.2em #000 inset, 0 0 0.5em #000, 0 0 1px 0px #fff;
 }
 
 #Top {
@@ -126,4 +134,15 @@ p {
   height: 5em;
   -webkit-transform: rotateX(90deg) translateZ(2.5em);
           transform: rotateX(90deg) translateZ(2.5em);
+}
+
+input {
+  width: 98%;
+  height: 90%;
+  color: black;
+  background-color: transparent;
+  border: 2px solid grey;
+  -webkit-box-shadow: 0 0 0.2em #000 inset;
+          box-shadow: 0 0 0.2em #000 inset;
+  text-align: center;
 }

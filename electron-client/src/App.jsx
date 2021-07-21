@@ -12,7 +12,7 @@ const App = () => {
 
         <div id = "RightSide" className = "Side"></div>
         <div id = "LeftSide" className = "Side"></div>
-        <div id = "BackSide" className = "Side"></div>
+        <div id = "BackSide" className = "Side"><input type="text" /></div>
         <div id = "Bottom" className = "Side"></div>
         <div id = "Top" className = "Side"></div>
 
