@@ -1,3 +1,5 @@
+import time
+
 # CircuitPython Modules
 import board
 import busio
@@ -35,3 +37,5 @@ while True:
 
     # Print the Voltage from Pin A0
     print( channels[ 0 ].voltage )
+
+    time.sleep( 0.75 )
